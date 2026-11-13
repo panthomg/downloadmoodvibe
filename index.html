@@ -155,6 +155,28 @@ header.lift{box-shadow:0 10px 24px -14px rgba(27,24,64,.45)}
 .js .rv{opacity:0;transform:translateY(28px) scale(.97);transition:opacity .6s ease,transform .8s cubic-bezier(.2,.9,.3,1.15);transition-delay:calc(var(--i,0)*70ms)}
 .js .rv.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none}.face span,.panel{animation:none!important}.phone{transform:none!important}}
+
+.method{border:2px solid var(--line);border-radius:22px;padding:clamp(1.1rem,3vw,1.6rem);margin-top:1.5rem;background:var(--bg)}
+.method h3{font-size:1.25rem;margin-bottom:.6rem}
+.method .steps{margin-top:1.25rem}
+.method .note{margin-bottom:0}
+.badge{display:inline-block;background:var(--accent);color:var(--on);border-radius:99px;padding:.25rem .85rem;font:700 .9rem Nunito,sans-serif;margin:0 .4rem .3rem 0}
+
+#features{padding-bottom:clamp(2.5rem,6vw,4rem)}
+.fhead{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1rem;margin-bottom:1.75rem}
+.fhead h2{margin:0 0 .3em}
+.pause{min-height:48px;border-radius:99px;border:2px solid var(--ink);background:var(--card);color:var(--ink);font:700 1rem Nunito,sans-serif;padding:.5rem 1.2rem;cursor:pointer;transition:transform .25s cubic-bezier(.34,1.56,.64,1)}
+.pause:active{transform:scale(.94)}
+.fvp{overflow-x:auto;overflow-y:hidden;scrollbar-width:none;overscroll-behavior-x:contain;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+.fvp::-webkit-scrollbar{display:none}
+.ftrack{display:flex;gap:1.25rem;width:max-content;padding:.75rem 2rem 1.25rem}
+.fc{--c:#FFB703;width:min(280px,76vw);flex:none;background:var(--card);border:2px solid var(--line);border-top:8px solid var(--c);border-radius:24px;padding:1.2rem 1.3rem 1.4rem;transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.fc:hover{transform:translateY(-6px)}
+.fc .fe{font-size:2.2rem;line-height:1;display:block;margin-bottom:.6rem}
+.fc .tag{display:inline-block;font:700 .8rem Nunito,sans-serif;padding:.15rem .7rem;border-radius:99px;background:color-mix(in srgb,var(--c) 30%,var(--card));margin-bottom:.6rem}
+.fc h3{font-size:1.2rem;margin:0 0 .35rem}
+.fc p{margin:0;font-size:1rem;line-height:1.5}
+@media(prefers-reduced-motion:reduce){.fc:hover{transform:none}}
 </style>
 </head>
 <body>
@@ -164,6 +186,7 @@ header.lift{box-shadow:0 10px 24px -14px rgba(27,24,64,.45)}
 <button class="menu" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navList">☰</button>
 <nav aria-label="Main"><ul id="navList">
 <li><a href="#about">About</a></li>
+<li><a href="#features">Features</a></li>
 <li><a href="#install">How to install</a></li>
 <li><a href="#help">Help</a></li>
 <li><a class="cta" href="https://github.com/panthomg/downloadmoodvibe/releases/download/android/Moodvibe.1.apk">Download</a></li>
@@ -209,16 +232,22 @@ header.lift{box-shadow:0 10px 24px -14px rgba(27,24,64,.45)}
 </div>
 </section>
 
+<section id="features">
+<div class="wrap fhead"><div><h2>Packed with things you’ll love</h2><p style="margin:0;color:var(--muted)">Swipe it, or let it roll. Here’s everything MoodVibe can do.</p></div><button class="pause" id="fpause" type="button" aria-pressed="false">⏸ Pause</button></div>
+<div class="fvp" id="fvp" tabindex="0" role="region" aria-label="MoodVibe features, scrolling carousel"><div class="ftrack" id="ftrack"></div></div>
+</section>
+
 <section id="install" style="background:color-mix(in srgb,var(--accent) 14%,var(--bg))">
 <div class="wrap">
-<h2>Install MoodVibe in 4 easy ways</h2>
+<h2>Install MoodVibe in 5 easy ways</h2>
 <p>MoodVibe comes straight from the developer, not the Play Store. That means Android may show a few safety messages. This is normal. Pick the option that matches your phone.</p>
 
 <div class="note warn"><strong>⚠️ Seeing “Unsafe app blocked” or “App scan recommended”?</strong>
-<p style="margin:.4rem 0 0">Android shows this for every app outside the Play Store. Tap <strong>More details</strong>, then <strong>Install anyway</strong>. If you can’t continue, open Google Play Store settings and pause <strong>Scan apps with Play Protect</strong>. Turn it back on afterwards.</p></div>
+<p style="margin:.4rem 0 0">This popup appears when you tap Install. Android shows it for every app outside the Play Store. Tap <strong>More details</strong>, then <strong>Install anyway</strong>. If you can’t continue, open Google Play Store settings and pause <strong>Scan apps with Play Protect</strong>. Turn it back on afterwards.</p><p style="margin:.6rem 0 0"><a href="#install" data-tab="t5"><strong>Show me the easy fixes 👉</strong></a></p></div>
 
 <div class="tabs" role="tablist" aria-label="Install methods">
 <button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="true"><span class="ti">📲</span><b>Quick install</b><span class="ease">😀😀 Super easy</span><span class="time">⏱ About 2 minutes</span></button>
+<button class="tab" role="tab" id="t5" aria-controls="p5" aria-selected="false"><span class="ti">🛑</span><b>I see a Play Protect popup</b><span class="ease">😀😀 Super easy</span><span class="time">⏱ About 2 minutes</span></button>
 <button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false"><span class="ti">🛡️</span><b>Phone says “Unverified developer”</b><span class="ease">😀 Easy</span><span class="time">⏱ 5 minutes + 1 day wait</span></button>
 <button class="tab" role="tab" id="t3" aria-controls="p3" aria-selected="false"><span class="ti">💻</span><b>Install with a computer</b><span class="ease">😀Easy, no waiting</span><span class="time">⏱ About 10 minutes</span></button>
 <button class="tab" role="tab" id="t4" aria-controls="p4" aria-selected="false"><span class="ti">📱</span><b>Phone only, no computer</b><span class="ease">😀Easy, no waiting</span><span class="time">⏱ About 10 minutes</span></button>
@@ -234,6 +263,35 @@ header.lift{box-shadow:0 10px 24px -14px rgba(27,24,64,.45)}
 <li><div><h4>✅ Allow it</h4><p>If asked, tap <strong>Settings</strong> and switch on <strong>Allow from this source</strong>.</p></div></li>
 <li><div><h4>🎉 Install and open</h4><p>Tap <strong>Install</strong>, then <strong>Open</strong>. Enjoy MoodVibe!</p></div></li>
 </ol>
+</div>
+
+<div class="panel" role="tabpanel" id="p5" aria-labelledby="t5" hidden>
+<h3>🛑 The Play Protect popup</h3>
+<p>When you tap <strong>Install</strong>, Android may show a Google Play Protect popup such as “Unsafe app blocked” or “App scan recommended”. This is very common for apps that don’t come from the Play Store, and MoodVibe is no exception. Here are two easy ways past it.</p>
+<div class="method">
+<h3>⚙️ Method A: Pause Play Protect scanning</h3>
+<span class="badge">😀😀 Super easy</span><span class="badge">⏱ About 2 minutes</span>
+<ol class="steps">
+<li><div><h4>🏪 Open the Play Store</h4><p>Open the <strong>Google Play Store</strong> app on your phone.</p></div></li>
+<li><div><h4>👤 Tap your profile</h4><p>Tap your <strong>profile icon</strong> in the top right corner.</p></div></li>
+<li><div><h4>🛡️ Open Play Protect</h4><p>Tap <strong>Play Protect</strong>.</p></div></li>
+<li><div><h4>⚙️ Open its settings</h4><p>Tap the <strong>gear icon</strong> in the top right corner of the screen.</p></div></li>
+<li><div><h4>⏸️ Pause scanning</h4><p>Find <strong>Scan apps with Play Protect</strong> and switch it off. If you’re offered <strong>Pause app scanning</strong>, choose that.</p></div></li>
+<li><div><h4>🎉 Try again</h4><p>Go back to your Files app and install the APK again. It should go through.</p></div></li>
+</ol>
+<div class="note warn"><strong>💡 Good to know:</strong> Play Protect may still scan MoodVibe later and remove it. If that happens, keep scanning paused while you try MoodVibe, then turn it back on when you’re done.</div>
+</div>
+<div class="method">
+<h3>🛠️ Method B: Install with InstallerX</h3>
+<span class="badge">😀 Easy</span><span class="badge">⏱ About 10 minutes</span>
+<p style="margin-top:.8rem">Prefer not to change any settings? InstallerX is a free installer app. It skips the standard Android installer that Play Protect hooks into, so the popup doesn’t appear.</p>
+<ol class="steps">
+<li><div><h4>🏪 Get Shizuku</h4><p>Install <strong>Shizuku</strong> from the Google Play Store. It lets other apps use Android’s developer tools without rooting your phone.</p></div></li>
+<li><div><h4>📦 Get InstallerX</h4><p>Search for <strong>InstallerX</strong> on GitHub and install it.</p></div></li>
+<li><div><h4>▶️ Start Shizuku</h4><p>Open Shizuku and follow its instructions to start the service. Then give InstallerX the permission it asks for.</p></div></li>
+<li><div><h4>🎉 Install MoodVibe</h4><p>Use InstallerX to open the MoodVibe APK and install it. No popup this time!</p></div></li>
+</ol>
+</div>
 </div>
 
 <div class="panel" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
@@ -308,6 +366,7 @@ header.lift{box-shadow:0 10px 24px -14px rgba(27,24,64,.45)}
 <h2>Questions? We’ve got answers</h2>
 <details><summary>It says “App not installed”. What now?</summary><div><p>You may have an older MoodVibe with a different signature. Uninstall the old one, then install the new file again.</p></div></details>
 <details><summary>Why is the file 127 MB?</summary><div><p>This early build is a “Debug” version with extra files that help us fix bugs. Future Release versions will be much smaller, around 5–10 MB.</p></div></details>
+<details><summary>A Play Protect popup appeared. Is something wrong?</summary><div><p>[Please check the above section of "How to install", it has tthe guide on fixing this] No. Android shows it when you install any app from outside the Play Store. Open the “I see a Play Protect popup” tab above for two easy ways to continue.</p></div></details>
 <details><summary>Is my data safe if I skip the Play Protect warning?</summary><div><p>Yes. Choosing “Install anyway” only tells Android you trust this one file. It doesn’t open your phone to other apps. MoodVibe is local-first, so your mood logs are kept on your phone and in your private Firebase account.</p></div></details>
 </div>
 </section>
@@ -396,6 +455,66 @@ if(phone&&!rm){py+=(tp-py)*.12;rot+=(tr-rot)*.12;phone.style.transform="translat
 if(Math.abs(sv)>.02||Math.abs(py-tp)>.05||Math.abs(rot)>.02)requestAnimationFrame(fxTick);else fx=false}
 function kick(){if(!fx){fx=true;requestAnimationFrame(fxTick)}}
 addEventListener("scroll",kick,{passive:true});kick();
+})();
+</script>
+<script>document.querySelectorAll("[data-tab]").forEach(function(a){a.addEventListener("click",function(){document.getElementById(a.dataset.tab).click()})});</script>
+<script>
+(function(){
+var d=document,rm=matchMedia("(prefers-reduced-motion:reduce)").matches;
+var C=[["Journaling","#FFB703"],["History & search","#2EC4B6"],["Insights","#A99CFF"],["Plan & track","#5AB0FF"],["People","#F38BA0"],["Streaks & fun","#FF9F5A"],["Friends","#6BCB77"],["Privacy & Android","#FF7A98"]];
+var F=[["🎨","Your own mood palette",0,"Start with 7 moods, then add, rename and recolor them, or pick new emojis."],
+["🎚️","1–10 intensity",0,"Slide to show how strongly you feel each emotion."],
+["🔒","Private notes",0,"Journal notes plus AES-encrypted notes locked with your own password."],
+["🎤","Voice journaling",0,"Speak, and your words appear in your note."],
+["📸","Photo attachments",0,"Add photos to a mood entry to remember the moment."],
+["📚","Tags &amp; Tag Library",0,"Organize entries with tags, then browse them all once you have 7 or more."],
+["💡","Prompts &amp; quotes",0,"Rotating reflection prompts and inspiring quotes, offline or AI-made."],
+["📖","Immersive reader",1,"Light, Sepia, Slate and Dark themes, three fonts, bigger text and a Listen button."],
+["🔍","Universal search",1,"Search moods, events and goals at once, even by “last friday” or “5pm”."],
+["🗓️","Memory Lane",1,"See what you felt on this day in past years and revisit happy memories."],
+["⭐","History your way",1,"List or grid view, filters, favorites and quick edits."],
+["📈","Trends &amp; charts",2,"See your intensity trend, your mood mix and which tags go with which moods."],
+["🤖","AI companion",2,"Optional. Get a 30-day pattern summary, a supportive chat and gentle suggestions."],
+["📄","Reports &amp; backups",2,"Export a PDF report, CSV files or a full JSON backup."],
+["🟩","Year in Pixels",2,"Your whole year as a color grid you can download as a picture."],
+["📅","Calendar &amp; events",3,"Mood dots, goal check-ins and repeating events with reminders."],
+["📏","Measurables",3,"Track sleep, water, exercise and more, with streaks and confetti."],
+["🎯","Wellness goals",3,"A 3-step wizard, daily check-ins and progress rings."],
+["👥","Person-O-Meter",4,"Spot the people in your entries and see how time with them feels."],
+["🔥","Streaks with a safety net",5,"Missed a day? A restore window can save your streak."],
+["🏆","Badges &amp; daily tasks",5,"Unlock achievements, earn points and finish small daily tasks."],
+["🤝","Friends &amp; shared streaks",6,"Add friends with a code like MV-XXXXXX and keep streaks together."],
+["🙈","You choose what’s shared",6,"Friends see only your latest mood, never your notes. Turn it off any time."],
+["🖼️","Profile photo grid",6,"Show up to 10 photos with captions in a neat grid."],
+["📴","Works offline",7,"Log without internet. MoodVibe syncs when you’re back online."],
+["☁️","Cloud backups",7,"Up to 10 saved versions and a 31-day Recycle Bin."],
+["🌈","Themes galore",7,"8 themes, festival themes, custom theme packs and adjustable size."],
+["🔐","App lock",7,"Protect MoodVibe with your own password."],
+["📱","Made for Android",7,"Google Sign-In, a native photo picker, easy permissions and back-button support."]];
+var vp=d.getElementById("fvp"),tr=d.getElementById("ftrack"),btn=d.getElementById("fpause");
+tr.innerHTML=F.map(function(f){var c=C[f[2]];return '<div class="fc" style="--c:'+c[1]+'"><span class="fe">'+f[0]+'</span><span class="tag">'+c[0].replace("&","&amp;")+'</span><h3>'+f[1]+'</h3><p>'+f[3]+'</p></div>'}).join("");
+var first=tr.children[0],cl=[].slice.call(tr.children).map(function(c){var k=c.cloneNode(true);k.setAttribute("aria-hidden","true");return k});
+cl.forEach(function(k){tr.appendChild(k)});
+function half(){return cl[0].offsetLeft-first.offsetLeft}
+var x=0,paused=rm,hold=false,vis=true,last=0,ht;
+if(rm)btn.style.display="none";
+btn.addEventListener("click",function(){paused=!paused;btn.setAttribute("aria-pressed",paused);btn.textContent=paused?"▶ Play":"⏸ Pause"});
+function rel(ms){clearTimeout(ht);ht=setTimeout(function(){hold=false},ms)}
+function grab(){clearTimeout(ht);hold=true}
+vp.addEventListener("pointerenter",function(e){if(e.pointerType==="mouse")grab()});
+vp.addEventListener("pointerleave",function(e){if(e.pointerType==="mouse")rel(300)});
+vp.addEventListener("touchstart",grab,{passive:true});
+vp.addEventListener("touchend",function(){rel(1800)},{passive:true});
+vp.addEventListener("touchcancel",function(){rel(1800)},{passive:true});
+vp.addEventListener("focusin",grab);vp.addEventListener("focusout",function(){rel(300)});
+vp.addEventListener("wheel",function(e){if(Math.abs(e.deltaX)>Math.abs(e.deltaY)){grab();rel(1500)}},{passive:true});
+vp.addEventListener("scroll",function(){if(!hold)return;var h=half(),lo=h*.25;if(vp.scrollLeft>=lo+h)vp.scrollLeft-=h;else if(vp.scrollLeft<lo)vp.scrollLeft+=h;x=vp.scrollLeft},{passive:true});
+if("IntersectionObserver" in window)new IntersectionObserver(function(e){vis=e[0].isIntersecting}).observe(vp);
+function tick(t){
+var dt=Math.min(64,t-last);last=t;
+if(!paused&&!hold&&vis){var h=half(),lo=h*.25;x+=dt*.045;if(x<lo)x+=h;if(x>=lo+h)x-=h;vp.scrollLeft=x}
+requestAnimationFrame(tick)}
+requestAnimationFrame(tick);
 })();
 </script>
 </body>
